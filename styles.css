@@ -1,0 +1,113 @@
+/* Part 1: HTML & CSS - Artist Liberty */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #eae8ec 100%);
+    min-height: 100vh;
+}
+
+h2,
+h3 {
+    color: #333;
+}
+
+input,
+button {
+    margin: 10px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+input {
+    border: 2px solid #ddd;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+button {
+    background-color: #667eea;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    margin: 10px;
+}
+
+.heading {
+    background: linear-gradient(135deg, #667eea 0%, #a276e3 100%);
+    color: white;
+    padding: 20px;
+    margin: -20px -20px 30px -20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 2em;
+}
+
+.actions-container {
+    margin: 20px auto;
+    padding: 25px;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+
+.actions-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.user-table {
+    width: 85%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+}
+
+.user-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    font-weight: 600;
+}
+
+.user-table td {
+    text-align: left;
+}
+
+.user-table tbody tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.3s;
+}
+
+.user-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management - REST API</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <h1 class="heading">Just Books</h1>
+
+    <!-- 2.4: Search functionality (2 points) -->
+    <div class="actions-container">
+        <h3>Search Books</h3>
+        <input type="text" id="searchTitle" placeholder="Search by book title">
+        <button onclick="searchBooks()">Search</button>
+        <button onclick="clearSearch()" style="background-color: #757575;">Clear</button>
+    </div>
+
+    <h2>Books List</h2>
+    <table id="bookTable" class="user-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody id="bookTableBody">
+        </tbody>
+    </table>
+
+    <!-- 2.1: Add a new book (2 points) -->
+    <div class="actions-container">
+        <h3>Add New Book</h3>
+        <input type="text" id="createTitle" placeholder="Enter book title">
+        <input type="text" id="createAuthor" placeholder="Enter author name">
+        <button onclick="createBook()">Add Book</button>
+    </div>
+
+    <!-- 2.2: Update the book with ID 1 (2 points) -->
+    <div class="actions-container">
+        <h3>Update Book</h3>
+        <input type="number" id="updateId" placeholder="Enter Book ID">
+        <input type="text" id="updateTitle" placeholder="Enter new title">
+        <input type="text" id="updateAuthor" placeholder="Enter new author">
+        <button onclick="updateBook()">Update Book</button>
+    </div>
+
+    <!-- 2.3: Delete the book with the highest ID (2 points) -->
+    <div class="actions-container">
+        <h3>Delete Book with Highest ID</h3>
+        <button onclick="deleteHighestIdBook()" style="background-color: #f44336;">Delete Highest ID Book</button>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>
