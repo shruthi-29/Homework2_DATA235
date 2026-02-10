@@ -1,6 +1,3 @@
-# Part 2: FastAPI (8 points)
-# Book Management REST API
-
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -10,24 +7,22 @@ import os
 
 app = FastAPI()
 
-# Book model
 class Book(BaseModel):
     id: int
     title: str
     author: str
 
-# In-memory database
 books_db: List[Book] = [
     Book(id=1, title="Wuthering Heights", author="Emily Bronte"),
     Book(id=2, title="Pride and Prejudic", author="Jane Austen"),
     Book(id=3, title="Anne of Green Gables", author="Lucy Maud Montgomery"),
 ]
 
-# Counter for generating new IDs
+#Counter for generating new IDs
 next_id = 4
 
 
-# Serve the main HTML page
+#Serve the main HTML page
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
     try:
@@ -44,10 +39,7 @@ async def get_books():
     return books_db
 
 
-# Part 2.1: Add a new book (2 points)
-# The user should be able to enter the Book Title and Author Name.
-# Once submitted, the book should be added, and the user should be redirected 
-# to the home view showing the updated list of books.
+#Part 2.1: Add a new book (2 points)
 @app.post("/api/books", response_model=Book)
 async def create_book(book: Book):
     global next_id
@@ -64,8 +56,6 @@ async def create_book(book: Book):
 
 
 # Part 2.2: Update the book with ID 1 (2 points)
-# Update book with ID 1 to title: "Harry Potter", Author Name: "J.K Rowling"
-# After submitting the data, redirect to the home view and show the updated data
 @app.put("/api/books/{book_id}", response_model=Book)
 async def update_book(book_id: int, book: Book):
     for idx, existing_book in enumerate(books_db):
@@ -83,8 +73,7 @@ async def update_book(book_id: int, book: Book):
     raise HTTPException(status_code=404, detail=f"Book with ID {book_id} not found")
 
 
-# Part 2.3: Delete the book with the highest ID (2 points)
-# After submitting the data, redirect to the home view and show the updated data
+#Part 2.3: Delete the book with the highest ID (2 points)
 @app.delete("/api/books/highest")
 async def delete_highest_id_book():
     if not books_db:
@@ -98,9 +87,7 @@ async def delete_highest_id_book():
     return {"message": f"Book with ID {highest_book.id} ('{highest_book.title}') deleted successfully"}
 
 
-# Part 2.4: Search functionality (2 points)
-# The user should be able to search for a book by name/title
-# When the user enters a name and searches, the list should update to show only matching books
+#Part 2.4: Search functionality (2 points)
 @app.get("/api/books/search", response_model=List[Book])
 async def search_books(title: Optional[str] = None):
     if not title:
@@ -115,12 +102,9 @@ async def search_books(title: Optional[str] = None):
     
     return matching_books
 
-
-# Mount static files AFTER defining all routes
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-
-# Run with: uvicorn main:app --reload --port 8001
+#Run with: uvicorn 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8003)
